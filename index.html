@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📝 Todo List Web - Ira</title>
 
-    <!-- Font Family -->
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
-    
     <!-- CSS External -->
     <link rel="stylesheet" href="css\style.css">
     
@@ -16,28 +13,42 @@
     <!-- Hero Website -->
     <header>
         <h1>Todo List</h1>
-        <p>Manage your daily tasks easily</p>
+        <p class="subtitle">Manage your daily tasks easily</p>
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main class="todo-container">
 
-        <!-- Section: Form Input Todo -->
+        <!-- Form Input Todo -->
         <section aria-label="Todo Input">
-            <form>
-                <input type="text" placeholder="Add a new text">
-                <input type="date" placeholder="Due date">
-                <button>+</button>
+            <form id="todo-form" class="input-group">
+                <div class="form-field">
+                    <label for="todo-input">Task</label>
+                    <input type="text" id="todo-input" placeholder="Add a new text" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="date-input">Due Date</label>
+                    <input type="date" id="date-input" required>
+                </div>
+
+                <button type="submit" id="add-btn">+</button>
             </form>
         </section>
 
-        <!-- Section: Filter control & Deleted All -->
+        <!-- Feedback Message -->
+        <section aria-label="Feedback Message">
+            <p id="feedback-msg" class="hidden">Task added successfully!</p>
+        </section>
+
+        <!-- Filter control & Deleted All -->
         <section class="controls" aria-label="Controls">
             <button id="filter-btn" type="button">Filter</button>
+            <button id="reset-filter-btn" type="button">Show All</button>
             <button id="delete-all-btn" type="button">Delete All</button>
         </section>
 
-        <!-- Section: Todo List -->
+        <!-- Todo List -->
         <section aria-label="Todo List">
             <table>
                 <thead>
@@ -48,12 +59,21 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
+                <tbody id="todo-list">
+                    <tr>
+                        <td colspan="4" class="no-task">No task found</td>
+                    </tr>
+                </tbody>
             </table>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <span>&copy; 2025 Ira. All right reserved</span>
     </footer>
+
+    <!-- JavaScript External -->
+    <script src="js\script.js"></script>
 </body>
 </html>
